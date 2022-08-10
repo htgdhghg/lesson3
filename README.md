@@ -1,141 +1,48 @@
-// int string bool float double
-// int a = 10;
-// string b = "hello";
-// bool c = true; // false
-// float d = 15.4f;
-// dooble e =15.4f;
-
-// Тип данных int 
-// = присваиваем значение
-// string user_name = "Andrey"
-// = присвоить
-// == сравнить
+int n = int.Parse(Console.ReadLine());
+int k = (int)Math.Log10(n)-2;
+Console.WriteLine(k < 0 ? "No such digit" : (n % (int)Math.Pow(10, k + 1) / (int)Math.Pow(10, k)).ToString());
+Console.ReadLine();
 
 
-while (true)
-{Console.WriteLine("Введите оператор +/-/*/: или end для выхода");
-    string Operator = Console.ReadLine();
-    if (Operator == "end")
+
+
+
+""" Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным. 
+Пример: - 6 -> да - 7 -> да - 1 -> нет  """
+
+
+def InputNumbers(inputText):
+    is_OK = False
+    while not is_OK:
+        try:
+            number = int(input(f"{inputText}"))
+            is_OK = True
+        except ValueError:
+            print("Это не число!")
+    return number
+
+
+def checkNumber(num):
+    if 6 <= num <= 7:
+        print("Yes")
+    elif 0 < num < 6:
+        print("No")
+    else:
+        print("число вне пределов 7 дней")
+
+
+num = InputNumbers("Введите число: ")
+checkNumber(num)
+
+
+
+
+Console.WriteLine("Введите трехзначное число.\nВыхода из программы команда Exit.");
+    while(true)
     {
-        break;
-    }
-    Console.WriteLine("Введите 1 число");
-    int number1 = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Введите 2 число");
-    int number2 = Convert.ToInt32(Console.ReadLine());
-if (Operator == "+"){
-   Console.WriteLine(number1 + number2); 
-}
-    else if (Operator == "-")
-    {
-        Console.WriteLine(number1 - number2);
-    }
-    else if (Operator == "*")
-    {
-        Console.WriteLine(number1 * number2);
-    }
-    else if (Operator == ":")
-    {
-        Console.WriteLine(number1 / number2);
-    }
-
-
-
-} 
-
-using System;
- 
-namespace HelloApp
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Введите первое число: ");
-            int num1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите второе число: ");
-            int num2 = Convert.ToInt32(Console.ReadLine());
- 
-            if(num1 > num2)
-            {
-                Console.WriteLine("Первое число больше второго");
-            }
-            else if (num1 < num2)
-            {
-                Console.WriteLine("Первое число меньше второго");
-            }
-            else
-            {
-                Console.WriteLine("Оба числа равны");
-            }
-            Console.ReadKey();
-        }
-    }
-}
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-a = int(input())
-b = int(input())
-c = int(input())
- 
-res = []
-res.append(a)
-res.append(b)
-res.append(c)
- 
-print(max(res))
-res.remove(max(res))
-print(min(res))
-res.remove(min(res))
-print(res[0])
-
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
- 
-namespace ConsoleApplication1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            int a;                             
-            Console.Write("введите число: ");
-            a= Console.Read();
- 
-            if (a % 2==1)
-            {
-                Console.WriteLine("число нечетное");
-           
-            }
-            else
-            {
-                Console.WriteLine("Число четное");
-            }
- 
-            Console.ReadKey();
-        }
-    }
-}
-
-
- 
-for (int x = 2; x < 101; x++)       
-if (x%2==0)            
-Console.WriteLine(x);
+        string input = Console.ReadLine();
+        if(!input.Equals("exit"))
+            Console.WriteLine("{0}->{1}",input, input[1]);
+        else
+            break;
+    }  
