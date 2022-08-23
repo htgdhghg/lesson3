@@ -1,143 +1,82 @@
-// Задача 34: Задать массивный массив случайных вычислений трехзначными числами. Напишите программу, которая показывает количество считываемых чисел в массиве.
-// [345, 897, 568, 234] -> 2
+// Задача 41. Пользователь вводит с клавиатуры M чисел. Почитайте, сколько чисел больше 0 ввёл пользователей.
+// 0, 7, 8, -2, -2 -> 2
+// -1, -7, 567, 89, 223-> 3
 
 Консоль.Очистить();
-Console.WriteLine($"Задача 34. Количество чётных чисел в массиве:\n");
-int[] числа = новый int[10];
 
-void FillArray (массив int [], int min, int max) {
-  for (int i = 0; i<array.Length; i++) {
-    array[i] = new Random(). Next(min, max);
-  }
-}
+Console.WriteLine($"Задача 41. Cколько чисел больше 0 ввёл пользователей \n");
+Console.Write($"Введите число М(количество чисел): ");
+int m = Convert.ToInt32(Console.ReadLine());
+int[] massNumbers = новый int[m];
 
-недействительным WriteArray (массив int []) {
-    for (int i = 0; i<array.Length; i++) {
-    Console.Write(массив[i] + " ");
-  }
-  Консоль.ЗаписьЛинии();
-}
-
-int QuantityPositive (массив int []) {
-    целое количество = 0;
-    for (int i = 0; i<array.Length; i++) {
-    если (массив [i] % 2 == 1)
-    {
-      количество++;
-    }
-  }
-  возвращаемое количество;
-}
-
-ЗаполнитьМассив(числа, 100, 1000);
-ЗаписатьМассив(числа);
-Консоль.ЗаписьЛинии();
-
-int количество = QuantityPositive (числа);
-Console.WriteLine($"Количество чётных чисел в массиве: {quantity}");
-
-
-// Задача 36: Задайте одномерный массив, зарегистрированный случайными числами. Появляются количества элементов, стоящих на нечётных позициях.
-// [3, 7, 23, 12] -> 19
-// [-4, -6, 89, 6] -> 0
-
-
-// Консоль.Очистить();
-Console.WriteLine($"\nЗадача 36. Сумма элементов, стоящих на нечётных позициях:\n");
-Console.Write($"Введите количество элементов массива: ");
-int numberElements = Convert.ToInt32(Console.ReadLine());
-
-int RandomNumbers (int numberElements, int min, int max)
+недействительными InputNumbers (int m) {
+для (целое я = 0; я < м; я ++)
   {
-  int[] randomNumbers = новый int[numberElements];
-  интервал элементов = 0;
-  Console.Write("Получившийся массив: ");
-
-    for (int i = 0; i <randomNumbers.Length; i++) {
-      randomNumbers[i] = new Random().Next(min, max);
-
-      Console.Write(randomNumbers[i] + " ");
-
-      если (я % 2 != 1)
-      {
-        sumElements = sumElements + randomNumbers[i];
-      }
-    }
-  вернуть элементы суммы;
+    Console.Write($"Введите {i+1} число: ");
+    массивныеЧисла[i] = Convert.ToInt32(Console.ReadLine());
   }
-
-int randomNumbers = RandomNumbers (numberElements, 1, 10);
-
-Console.WriteLine($"\nСумма элементов, стоящих на нечётных позициях: {randomNumbers}");
+}
 
 
-// Задача 38: Задайте массив множественных чисел. Внешний вид между максимальным и наличием элементов массива.
-// [3 7 22 2 78] -> 76
-
-Console.WriteLine($"\nЗадача 38. Выявленные различия между максимальным и присутствием массива элементов из выделенных чисел:\n");
-
-double[] arrayRealNumbers = new double[10];
-  for (int i = 0; i < arrayRealNumbers.Length; i++)
+int Сравнение (int [] массивные числа)
+{
+  количество счетчиков = 0;
+  for (int я = 0; я < массивныйNumbers.Length; я ++)
   {
-    arrayRealNumbers[i] = new Random().Next(1, 10);
-    Console.Write(arrayRealNumbers[i] + " ");
+    если (massiveNumbers[i] > 0 ) count += 1;
   }
+  количество возвратов;
+}
 
-двойное максимальное число = массив реальных чисел [0];
-двойное минимальное число = массив реальных чисел [0];
+InputNumbers (м);
 
-  for (int i = 1; i < arrayRealNumbers.Length; i++)
+Console.WriteLine($"Введено чисел больше 0: {Comparison(massiveNumbers)} ");
+
+// Задача 43. Напишите программу, которая найдёт точку пересечения двух прав, заданных задачами y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; 5,5)
+
+
+Console.WriteLine($"\nЗадача 43. Найти точку пересечения двух прав \n");
+
+double[,] coeff = new double[2, 2];
+двойной[] crossPoint = новый двойной[2];
+
+недействительными входными коэффициентами () {
+  for (int i = 0; i < coeff.GetLength(0); i++)
   {
-    если (maxNumber < arrayRealNumbers[i])
+    Console.Write($"Введите коэффициенты {i+1}-го уравнения (y = k * x + b):\n");
+    for (int j = 0; j < coeff.GetLength(1); j++)
     {
-      maxNumber = arrayRealNumbers[i];
-    }
-        если (minNumber > arrayRealNumbers[i])
-    {
-      minNumber = arrayRealNumbers[i];
+      if(j==0) Console.Write($"Включить коэффициент k: ");
+      else Console.Write($"Ввести коэффициент b: ");
+      coeff[i,j] = Convert.ToInt32(Console.ReadLine());
     }
   }
-
-  двойное решение = maxNumber - minNumber;
-
-  Console.WriteLine($"\nразница между максимальным ({maxNumber}) и владением({minNumber}) приложениями: {decision}");
-
-
-  // Задача 35: Задайте одномерный массив из 123 случайных чисел. Найдите количество элементов массива, значения которых лежат в отрезке [10,99].
-
-int[] array = new int[123];
-int count=0;
-
-for (int i = 0; i < array.Length; i++)
-{
-    array[i] = new Random().Next(0, 1000);
-    Console.Write(array[i] + " ");
 }
-Console.WriteLine();
-for (int j = 0; j < array.Length; j++)
+
+double[] Решение(double[,] coeff)
 {
-    if(array[j] > 9 & array[j] < 100) count = count + 1;
+  crossPoint[0] = (coeff[1,1] - coeff[0,1]) / (coeff[0,0] - coeff[1,0]);
+  crossPoint[1] = crossPoint[0] * coeff[0,0] + coeff[0,1];
+  вернуть точку пересечения;
 }
-Console.WriteLine();
-Console.Write("Массив совержит следующее количество элементов из отрезка [10,99] - ");
-Console.Write(count);
 
-
-// Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.
-
-int N = 10;
-int[] array = new int[N];
-
-for (int i = 0; i < array.Length; i++)
+void OutputResponse (двойной [,] коэф.)
 {
-    array[i] = new Random().Next(0, 10);
-    Console.Write(array[i] + " ");
+  if (coeff[0,0] == coeff[1,0] && coeff[0,1] == coeff[1,1])
+  {
+    Console.Write($"\nПрямые совпадают");
+  }
+  иначе если (coeff[0,0] == coeff[1,0] && coeff[0,1] != coeff[1,1])
+  {
+    Console.Write($"\nПрямые симметричны");
+  }
+  еще
+  {
+    Решение(коэфф);
+    Console.Write($"\nТочка пересечения прав: ({crossPoint[0]}, {crossPoint[1]})");
+  }
 }
-Console.WriteLine();
 
-int j = array.Length - 1;
-for (int i = 0; i < (array.Length + 1) / 2; i++)
-{
-    Console.Write(array[i] * array[j] + " ");
-    j--;
-}
+ВходныеКоэффициенты();
+Выходной ответ (коэффициент); 
