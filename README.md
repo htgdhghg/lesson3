@@ -1,82 +1,132 @@
-// Задача 41. Пользователь вводит с клавиатуры M чисел. Почитайте, сколько чисел больше 0 ввёл пользователей.
-// 0, 7, 8, -2, -2 -> 2
-// -1, -7, 567, 89, 223-> 3
+// Задача 47: Задайте двумерный массив размером m×n, обнаруженный случайным выявленным числом.
+Console.WriteLine("введите количество строк");
+int linesVol = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов");
+int columnsVol = Convert.ToInt32(Console.ReadLine());
+двойные [,] числа = новые двойные [linesVol, columnsVol];
+FillArrayRandomNumbers(числа);
+РаспечататьМассив(числа);
 
-Консоль.Очистить();
-
-Console.WriteLine($"Задача 41. Cколько чисел больше 0 ввёл пользователей \n");
-Console.Write($"Введите число М(количество чисел): ");
-int m = Convert.ToInt32(Console.ReadLine());
-int[] massNumbers = новый int[m];
-
-недействительными InputNumbers (int m) {
-для (целое я = 0; я < м; я ++)
-  {
-    Console.Write($"Введите {i+1} число: ");
-    массивныеЧисла[i] = Convert.ToInt32(Console.ReadLine());
-  }
-}
-
-
-int Сравнение (int [] массивные числа)
+void FillArrayRandomNumbers (массив double [,])
 {
-  количество счетчиков = 0;
-  for (int я = 0; я < массивныйNumbers.Length; я ++)
-  {
-    если (massiveNumbers[i] > 0 ) count += 1;
-  }
-  количество возвратов;
-}
-
-InputNumbers (м);
-
-Console.WriteLine($"Введено чисел больше 0: {Comparison(massiveNumbers)} ");
-
-// Задача 43. Напишите программу, которая найдёт точку пересечения двух прав, заданных задачами y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
-// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; 5,5)
-
-
-Console.WriteLine($"\nЗадача 43. Найти точку пересечения двух прав \n");
-
-double[,] coeff = new double[2, 2];
-двойной[] crossPoint = новый двойной[2];
-
-недействительными входными коэффициентами () {
-  for (int i = 0; i < coeff.GetLength(0); i++)
-  {
-    Console.Write($"Введите коэффициенты {i+1}-го уравнения (y = k * x + b):\n");
-    for (int j = 0; j < coeff.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      if(j==0) Console.Write($"Включить коэффициент k: ");
-      else Console.Write($"Ввести коэффициент b: ");
-      coeff[i,j] = Convert.ToInt32(Console.ReadLine());
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = Convert.ToDouble(new Random().Next(-100, 100))/10;
+        }
     }
-  }
 }
 
-double[] Решение(double[,] coeff)
+void PrintArray (двойной [,] массив)
 {
-  crossPoint[0] = (coeff[1,1] - coeff[0,1]) / (coeff[0,0] - coeff[1,0]);
-  crossPoint[1] = crossPoint[0] * coeff[0,0] + coeff[0,1];
-  вернуть точку пересечения;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Консоль.Написать("[ ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(массив [i, j] + " ");
+        }
+        Console.Write("]");
+        Консоль.WriteLine("");
+    }
 }
 
-void OutputResponse (двойной [,] коэф.)
+
+// Задача 50: Напишите программу, которая принимает позицию элемента в двумерном массиве, и возвращает значение этого элемента или же указывает, что такого элемента нет.
+
+Console.WriteLine("введите номер строки");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите номер столбца");
+int m = Convert.ToInt32(Console.ReadLine());
+int [,] числа = новые int [10,10];
+FillArrayRandomNumbers(числа);
+
+если (n > числа.GetLength(0) || m > числа.GetLength(1))
 {
-  if (coeff[0,0] == coeff[1,0] && coeff[0,1] == coeff[1,1])
-  {
-    Console.Write($"\nПрямые совпадают");
-  }
-  иначе если (coeff[0,0] == coeff[1,0] && coeff[0,1] != coeff[1,1])
-  {
-    Console.Write($"\nПрямые симметричны");
-  }
-  еще
-  {
-    Решение(коэфф);
-    Console.Write($"\nТочка пересечения прав: ({crossPoint[0]}, {crossPoint[1]})");
-  }
+    Console.WriteLine("такого элемента нет");
+}
+еще
+{
+    Console.WriteLine($"значение элемента {n} строки и {m} столбца равно {numbers[n-1,m-1]}");
 }
 
-ВходныеКоэффициенты();
-Выходной ответ (коэффициент); 
+РаспечататьМассив(числа);
+
+недействительным FillArrayRandomNumbers (массив int [,])
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+        {        
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                массив [i,j] = новый Random().Next(-100, 100)/10;
+            }   
+        }
+}
+
+недействительным PrintArray (массив int [,])
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Консоль.Написать("[ ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(массив [i,j] + " ");
+        }   
+        Console.Write("]");
+        Консоль.WriteLine("");
+    }
+}
+
+
+//Задача 52: Задайте двумерный массив из множественных чисел. Появляются среднее арифметическое элементы в каждом столбце.
+
+Console.WriteLine("введите количество строк");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов");
+int m = Convert.ToInt32(Console.ReadLine());
+
+int[,] numbers = new int[n, m];
+FillArrayRandomNumbers(числа);
+
+
+for (int j = 0; j < number.GetLength(1); j++)
+{
+    двойное среднее = 0;
+    for (int i = 0; i < numbers.GetLength (0); i++)
+    {
+        среднее = (среднее + числа [i, j]);
+    }
+    среднее = среднее/n;
+    Console.Write(среднее + "; ");
+}
+Консоль.ЗаписьЛинии();
+РаспечататьМассив(числа);
+
+
+
+недействительным FillArrayRandomNumbers (массив int [,])
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(0, 10);
+        }
+    }
+}
+
+недействительным PrintArray (массив int [,])
+{
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Консоль.Написать("[ ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(массив [i, j] + " ");
+        }
+        Console.Write("]");
+        Консоль.WriteLine("");
+    }
+}
