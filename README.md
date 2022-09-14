@@ -1,88 +1,44 @@
-// Задача 64: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1.
-// N = 5 -> "5, 4, 3, 2, 1"
-// N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
-
-Консоль.Очистить();
-Console.WriteLine($"Задача 64: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1.");
-int n = InputNumbers("Введите n: ");
-количество счетчиков = 2;
-РаспечататьЧисло(n, количество);
-Консоль.Запись(1);
-
-void PrintNumber (int n, int count)
+// Написать программу, которая из имеющегося массива целых чисел формирует массив из четных чисел. Первоначальный массив можно ввести с клавиатуры, либо сгенерировать случайным образом. При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
+int[] CreateArray(int count) // Метод создания массива
 {
-  если (количество > n) возврат;
-  PrintNumber(n, количество + 1);
-  Console.Write(количество + ", ");
+    return new int[count];
+}
+void FillArray(int[] array, int minValue, int maxValue) // метод заполнения массива
+{
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
+    {
+        array[i] = new Random().Next(minValue, maxValue);
+    }
+}
+string PrintArray(int[] array) // метод печать массива
+{
+    int count = array.Length;
+    string res = String.Empty;
+    for (int i = 0; i < count; i++)
+    {
+        res += $"{array[i]} ";
+    }
+    return res;
 }
 
-int InputNumbers (строковый ввод)
+int[] EvenNumbers(int[] array)// метод создания другого массива на основе первого, состоящего из чётных чисел
 {
-  Консоль.Запись(ввод);
-  int output = Convert.ToInt32(Console.ReadLine());
-  обратный вывод;
+    int[] arrayB = new int[array.Length];
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] % 2 == 0)
+        {
+            arrayB[count] = array[i];
+            count++;
+        }
+    }
+    Array.Resize(ref arrayB, count);
+    return arrayB;
 }
 
-
-// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт большое количество натуральных элементов в промежутке от M до N.
-// М = 1; N = 15 -> 120
-// М = 4; N = 8. -> 30
-
-Консоль.Очистить();
-Console.WriteLine($"Задача 66: Задайте значения M и N. Напишите программу, которая найдёт количество натуральных элементов в промежутке от M до N");
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
-инт темп = м;
-
-если (т > п)
-{
-  м = п;
-  п = температура;
-}
-
-PrintSumm(m, n, temp=0);
-
-недействительным PrintSumm (целое m, int n, int сумма)
-{
-  сумма = сумма + п;
-  если (п <= м)
-  {
-    Console.Write($"Сумма элементов= {sum} ");
-    возвращаться;
-  }
-  PrintSumm(m, n - 1, сумма);
-}
-
-int InputNumbers (строковый ввод)
-{
-  Консоль.Запись(ввод);
-  int output = Convert.ToInt32(Console.ReadLine());
-  обратный вывод;
-}
-
-
-// Задача 68: Напишите программу настройки функций Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
-// m = 2, n = 3 -> A(m,n) = 9
-
-Консоль.Очистить();
-Console.WriteLine($"Задача 68: Напишите программу оценки стоимости Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.");
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
-
-int functionAkkerman = Ack(m, n);
-
-Console.Write($"Функция Аккермана = {functionAkkerman} ");
-
-int Ack(int m, int n)
-{
-  если (m == 0) вернуть n + 1;
-  иначе если (n == 0) вернуть Ack(m - 1, 1);
-  иначе вернуть Ack(m - 1, Ack(m, n - 1));
-}
-
-int InputNumbers (строковый ввод)
-{
-  Консоль.Запись(ввод);
-  int output = Convert.ToInt32(Console.ReadLine());
-  обратный вывод;
-}
+int[] array = CreateArray(10); // создаем массив
+FillArray(array, 10, 100); // заполняем массив
+Console.WriteLine(PrintArray(array)); //печатаем начальный массив
+Console.WriteLine(PrintArray(EvenNumbers(array))); // печатаем массив на основе первого, но только чётных числа
